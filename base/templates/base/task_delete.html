@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method = "POST" action="">
+        {% csrf_token %}
+        <p>Sure, You Want To Delete this Task : "{{task}}"</p>
+
+        <a href="{% url 'index' %}">Go Back</a>
+        <input type="submit" value="Confirm">
+
+    </form>
+</body>
+</html>
