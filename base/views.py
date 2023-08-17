@@ -4,7 +4,9 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import *
+
 
 class CustomLogin(LoginView):
     template_name = 'base/login.html'
@@ -15,7 +17,7 @@ class CustomLogin(LoginView):
         return reverse_lazy('index')
 
 
-class TaskList(ListView):
+class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
     template_name = 'base/index.html'
