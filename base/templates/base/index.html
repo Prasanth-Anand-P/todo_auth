@@ -27,7 +27,11 @@
         
         {% for task in tasks %}
         <tr>
+            {% if task.complete %}
+            <td><strike>{{task.title.title}}</strike></td>
+            {% else%}
             <td>{{task.title.title}}</td>
+            {% endif %}
             <td><a href="{% url 'taskdetail' task.id %}">View</a></td>
             <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
             <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
