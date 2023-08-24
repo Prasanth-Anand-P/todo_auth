@@ -50,6 +50,13 @@ class TaskList(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['tasks'] = context['tasks'].filter(user = self.request.user)
         context['count'] = context['tasks'].filter(complete = False).count()
+
+        search_ip = self.request.GET.get('search_task') or ''
+        if search_ip :
+            context['tasks'] = context['tasks'].filter(title__icontains = search_ip)
+
+        context['search_ip'] = search_ip
+
         return context
 
 
