@@ -7,18 +7,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>To-Do</title>
 </head>
 <body>
-    <h1>Register</h1>
+    <div class="head-bar">
+        <h1>Register</h1>
+    </div>
+    
+    <div class="card-body">
+        <form method="POST" action="">
+            {% csrf_token %}
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Signup">
-    </form>
+            <label>{{form.username.label}}</label>
+            {{form.username}}
 
-    <p>Already have an account <a href="{% url 'login' %}">Singin</a> </p>
+            <label>{{form.password1.label}}</label>
+            {{form.password1}}
+
+            <label>{{form.password2.label}}</label>
+            {{form.password2}}
+
+            <input style="margin-top: 10px;" class="button" type="submit" value="Signup">
+        </form>
+        <p>Already have an account <a href="{% url 'login' %}">Singin</a> </p>
+    </div>
+    
+
+    
 
 </body>
 </html>

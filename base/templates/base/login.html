@@ -7,19 +7,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-Do</title>
 </head>
 <body>
+    <div class="head-bar">
+        <h1>Login</h1>
+    </div>
     
-    <h1>Login</h1>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="button" type="submit" value="Login">
+        </form>
+        <p>New User? <a href="{% url 'register' %}">Signup</a></p>
+    </div>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
-    </form>
-
-    <p>New User? <a href="{% url 'register' %}">Signup</a></p>
+    
 
 </body>
 </html>

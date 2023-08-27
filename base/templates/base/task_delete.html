@@ -7,17 +7,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-Do</title>
 </head>
 <body>
-    <form method = "POST" action="">
-        {% csrf_token %}
-        <p>Sure, You Want To Delete this Task : "{{task}}"</p>
 
-        <a href="{% url 'index' %}">Go Back</a>
-        <input type="submit" value="Confirm">
+    <div class="head-bar">
+        <a href="{% url 'index' %}">&#8592; Back</a>
+    </div>
 
-    </form>
+    <div class="card-body">
+        <form method = "POST" action="">
+            {% csrf_token %}
+            <p>Sure, You Want To Delete this Task : "{{task}}"</p>
+            <input class="button" type="submit" value="Confirm">
+        </form>
+    </div>
+    
 </body>
 </html>
 

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-Do</title>
 </head>
 <body>
 
@@ -23,40 +23,47 @@
         {% endif %}
         
     </div>
+    
 
     
-    <hr>
-    <h1>My To-Do</h1>
 
-    <a href="{% url 'task-create' %}"> Add Task</a>
+    
 
-    <form method="GET">
-        <input type="text" name="search_task" value="{{search_ip}}">
-        <input type="submit" value="Search">
-    </form>
+    <div class="search-add">
+        <form method="GET">
+            <input type="text" name="search_task" value="{{search_ip}}">
+            <input class="button" type="submit" value="Search">
+        </form>
 
-    <table>
-        <tr>
-            <th>Items</th>
-            <th> </th>
-            <th> </th>
-        </tr>
-        
+        <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+    </div>
+
+
+    <div class="task-item-wrap">
         {% for task in tasks %}
-        <tr>
+
+        <div class="task-wrap">
             {% if task.complete %}
-            <td><strike>{{task.title.title}}</strike></td>
+            <div class="task-title">
+                <div class="task-com"></div>
+                <i><s><a href="{% url 'task-update' task.id %}">{{task}}</a></s></i>
+            </div>
+            <a class="delete-task-link" href="{% url 'task-delete' task.id %}">&#215;</a>
             {% else%}
-            <td>{{task.title.title}}</td>
+            <div class="task-title">
+                <div class="task-incom"></div>
+                <a href="{% url 'task-update' task.id %}">{{task}}</a>
+            </div>
+            <a class="delete-task-link" href="{% url 'task-delete' task.id %}">&#215;</a>
             {% endif %}
-            <td><a href="{% url 'taskdetail' task.id %}">View</a></td>
-            <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
-            <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
-        </tr>
+            
+        </div>
+
         {%  empty %}
         <h3>no items</h3>
         {% endfor %}
-    </table>
+    </div>
+
 
 </body>
 </html>

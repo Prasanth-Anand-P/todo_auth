@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-Do</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gluten:wght@200&family=Manrope:wght@300&family=Pacifico&display=swap" rel="stylesheet">
 
 
     <style>
         body{
-            background-color: grey;
+            background-color: whitesmoke;
             font-family: 'Manrope', sans-serif;
             padding-top: 70px;
         }
@@ -17,6 +17,8 @@
         .container{
             margin: auto;
             max-width: 550px;
+            background-color: #f5f6f7;
+            box-shadow: 1px  1px 5px 5px rgba(10,10,10,0.5);
 
         }
 
@@ -36,6 +38,92 @@
         .head-bar a{
             color: #c8c9cc;
             text-decoration: none;
+        }
+
+        .task-wrap{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-top: 1px solid #cacfe6;
+        }
+
+        .task-title{
+            display: flex;
+        }
+
+        .task-title a{
+            text-decoration: none;
+            margin-left: 8px;
+        }
+
+        .task-com{
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: lightgreen;
+        }
+
+        .task-incom{
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: #e0dfda;
+        }
+
+        .delete-task-link{
+            text-decoration: none;
+            font-weight: bold;
+            color: orangered;
+            font-size: 27px;
+            line-height: 0;
+        }
+
+        .search-add{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .search-add form{
+            display: flex;
+            margin-top: 20px;
+        }
+
+        #add-link{
+            text-decoration: none;
+            color: aquamarine;
+            font-size: 42px;
+            text-shadow: 2px 2px brown;
+            line-height: 0;
+        }
+
+        input[type=text],input[type=password],textarea{
+            border: 1px solid #EB796F;
+            border-radius: 5px;
+            padding: 10px;
+            width: 90%;
+        }
+
+        label{
+            padding-top:10px !important;
+            display: block;
+        }
+
+        .button{
+            text-decoration: none;
+            border: 1px solid #EB796F;
+            background-color: #FAFAFA;
+            color: #EB796F;
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card-body{
+            padding: 20px;
         }
     </style>
 
